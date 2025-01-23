@@ -81,6 +81,17 @@ class PdoCourseRepository implements CourseRepository {
         return $courseArray;
     }
 
+    public function findById(int $courseId) : ?Course {
+        $sql = 'SELECT * FROM courses WHERE id = :id;';
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(':id', $courseId, PDO::PARAM_INT);
+        $statement->execute();
+
+        $courseData = $statement->fetch();
+
+        return $courseData ? $this->hydrateCourse($courseData) : null;
+    }
+
     private function hydrateCourse(array $courseData) : Course {
         return new Course(
             $courseData['title'],
