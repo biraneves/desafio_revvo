@@ -1,0 +1,7 @@
+{
+    "Autoload": {
+        "psr-4": {
+            "Biraneves\\Revvo\\": "src/"
+        }
+    }
+}
