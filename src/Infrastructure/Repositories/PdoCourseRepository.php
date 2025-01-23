@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Biranves\Revvo\Infrastructure\Repositories;
 
-use Biraneves\Revvo\Entities\Course;
-use Biraneves\Revvo\Entities\CourseRepository;
+use Biraneves\Revvo\Entities\{
+    Course,
+    CourseRepository,
+};
 use PDO;
 
 class PdoCourseRepository implements CourseRepository {
