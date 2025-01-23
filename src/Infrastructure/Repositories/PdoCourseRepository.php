@@ -64,4 +64,13 @@ class PdoCourseRepository implements CourseRepository {
         return $statement->execute();
     }
 
+    public function remove(int $courseId) : bool {
+        $sql = 'DELETE FROM courses WHERE id = :id;';
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(':id', $courseId, PDO::PARAM_INT);
+
+        return $statement->execute();
+    }
+
 }
