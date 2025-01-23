@@ -6,8 +6,25 @@ namespace Biraneves\Revvo\Entities;
 
 use InvalidArgumentException;
 
+/**
+ * Class Course
+ * 
+ * Represents a course entity with title, description, slideshow link,
+ * imagem, and an optional ID.
+ * 
+ * @package Biraneves\Revvo\Entities
+ */
 class Course {
 
+    /**
+     * Course constructor
+     * 
+     * @param string $title Title of the course
+     * @param string $description Description of the course
+     * @param string $linkSlideshow Link to the course slideshow
+     * @param string $image URL to the course image
+     * @param int|null $id Optional (during instantiation) ID of the course
+     */
     public function __construct(
         public readonly string $title,
         public readonly string $description,
@@ -22,10 +39,21 @@ class Course {
         $this->setId($id);
     }
 
+    /**
+     * Get the ID of the course
+     * 
+     * @return int|null ID of the course, or null if not set
+     */
     public function getId() : ?int {
         return $this->id;
     }
 
+    /**
+     * Set the ID of the course
+     * 
+     * @param int $id ID of the course to set
+     * @throws InvalidArgumentException if the ID is not a valid integer
+     */
     public function setId(int $id) : void {
         if (empty($id)) {
             $this->id = $id;
@@ -38,6 +66,12 @@ class Course {
         $this->id = $id;
     }
 
+    /**
+     * Set the title of the course
+     * 
+     * @param string $title Title of the course to set
+     * @throws InvalidArgumentException if the title is empty or does not meet length requirements
+     */
     private function setTitle(string $title) : void {
         $title = trim($title);
 
@@ -52,6 +86,12 @@ class Course {
         $this->title = $title;
     }
 
+    /**
+     * Set the description of the course
+     * 
+     * @param string $description Description of the course to set
+     * @throws InvalidArgumentException if the description is empty or does not meet length requirements
+     */
     private function setDescription(string $description) : void {
         $description = trim($description);
 
@@ -66,6 +106,12 @@ class Course {
         $this->description = $description;
     }
 
+    /**
+     * Set the slideshow link of the course
+     * 
+     * @param string $linkSlideshow Link to the course slideshow to set
+     * @throws InvalidArgumentException if the link is empty or not a valid URL
+     */
     private function setLinkSlideshow(string $linkSlideshow) : void {
         $linkSlideshow = trim($linkSlideshow);
 
@@ -80,6 +126,12 @@ class Course {
         $this->linkSlideshow = $linkSlideshow;
     }
 
+    /**
+     * Set the image of the course
+     * 
+     * @param string $image URL to the course image to set
+     * @throws InvalidArgumentException if the image is empty or not a valid URL
+     */
     private function setImage(string $image) : void {
         $image = trim($image);
 
