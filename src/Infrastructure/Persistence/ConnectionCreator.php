@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Biraneves\Revvo\Infrastructure\Persistence;
 
 use PDO;
