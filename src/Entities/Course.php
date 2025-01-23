@@ -8,19 +8,33 @@ use InvalidArgumentException;
 
 class Course {
 
-    public readonly ?int $id;
-
     public function __construct(
         public readonly string $title,
         public readonly string $description,
         public readonly string $linkSlideshow,
         public readonly string $image,
-        ?int $id = null,
+        private ?int $id = null,
     ) {
         $this->setTitle($title);
         $this->setDescription($description);
         $this->setLinkSlideshow($linkSlideshow);
         $this->setImage($image);
+        $this->setId($id);
+    }
+
+    public function getId() : ?int {
+        return $this->id;
+    }
+
+    public function setId(int $id) : void {
+        if (empty($id)) {
+            $this->id = $id;
+        }
+
+        if (!filter_var($id, FILTER_VALIDATE_INT)) {
+            throw new InvalidArgumentException('Course ID must be an integer');
+        }
+
         $this->id = $id;
     }
 
