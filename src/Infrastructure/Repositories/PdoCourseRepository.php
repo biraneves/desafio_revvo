@@ -73,4 +73,22 @@ class PdoCourseRepository implements CourseRepository {
         return $statement->execute();
     }
 
+    public function findAll() : array {
+        $sql = 'SELECT * FROM courses;';
+        $courseList = $this->pdo->query($sql)->fetchAll();
+        $courseArray = array_map($this->hydrateCourse(...), $courseList);
+
+        return $courseArray;
+    }
+
+    private function hydrateCourse(array $courseData) : Course {
+        return new Course(
+            $courseData['title'],
+            $courseData['description'],
+            $courseData['link_slideshow'],
+            $courseData['image'],
+            (int) $courseData['id'],
+        );
+    }
+
 }
