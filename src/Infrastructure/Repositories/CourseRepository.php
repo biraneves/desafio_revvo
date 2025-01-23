@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Biraneves\Revvo\Entities;
+namespace Biraneves\Revvo\Infrastructure\Repositories;
+
+use Biraneves\Revvo\Entities\Course;
 
 interface CourseRepository {
     public function save(Course $course) : bool;
