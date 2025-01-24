@@ -12,20 +12,14 @@ slides.forEach((slide, index) => slide.style.left = `${index * slideWidth}px`);
 
 // Update buttons
 const updateButtons = (slides, previousButton, nextButton, targetIndex) => {
-    if (targetIndex === 0) {
-        previousButton.disabled = true;
-    } else {
-        previousButton.disabled = false;
-    }
-
-    if (targetIndex === slides.length - 1) {
-        nextButton.disabled = true;
-    } else {
-        nextButton.disabled = false;
-    }
+    previousButton.disabled = targetIndex === 0;
+    nextButton.disabled = targetIndex === slides.length - 1;
 };
 
 // Moving the slide
-const moveToSlide = (slidesTrack, targetSlide) => {
+const moveToSlide = (slidesTrack, currentSlide, targetSlide) => {
     slidesTrack.style.transform = `translateX(-${targetSlide.style.left})`;
+    currentSlide.classList.remove('current-slide');
+    targetSlide.classList.add('current-slide');
 };
+
