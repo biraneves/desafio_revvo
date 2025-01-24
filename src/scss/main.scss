@@ -252,5 +252,20 @@ h1, h2, h3, h4, h5, h6 {
 
         }
 
+        &__social-media {
+
+            &__icons {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 16px;
+
+                img {
+                    width: 48px;
+                }
+            }
+
+        }
+
     }
 }

@@ -212,5 +212,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   line-height: 1.4rem;
 }
+.footer__content__social-media__icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+}
+.footer__content__social-media__icons img {
+  width: 48px;
+}
 
 /*# sourceMappingURL=style.css.map */
