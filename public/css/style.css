@@ -187,6 +187,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer {
   background-color: #ffffff;
+  padding-bottom: 20px;
 }
 .footer h3 {
   text-transform: uppercase;
@@ -220,6 +221,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 .footer__content__social-media__icons img {
   width: 48px;
+}
+.footer__copyright {
+  background-color: #efefef;
+  width: 100%;
+}
+.footer__copyright .container {
+  padding: 10px 0;
+  font-size: 0.9rem;
 }
 
 /*# sourceMappingURL=style.css.map */

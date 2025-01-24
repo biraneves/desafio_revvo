@@ -212,6 +212,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer {
     background-color: colors.$white;
+    padding-bottom: 20px;
 
     h3 {
         text-transform: uppercase;
@@ -267,5 +268,15 @@ h1, h2, h3, h4, h5, h6 {
 
         }
 
+    }
+
+    &__copyright {
+        background-color: colors.$backgroundColor;
+        width: 100%;
+
+        .container {
+            padding: 10px 0;
+            font-size: 0.9rem;
+        }
     }
 }
