@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Biraneves\Revvo\Entities;
 
+use DateTimeImmutable;
 use DateTimeInterface;
 use InvalidArgumentException;
 
@@ -152,12 +153,31 @@ class Course {
         $this->image = $image;
     }
 
+    /**
+     * Set the creation date of the course
+     * 
+     * @param DateTimeInterface $createdAt Date the course was created.
+     * @throws InvalidArgumentException if the creation date is empty
+     */
     private function setCreatedAt(DateTimeInterface $createdAt) : void {
         if (empty($createdAt)) {
             throw new InvalidArgumentException('Course creation date cannot be empty');
         }
         
         $this->createdAt = $createdAt;
+    }
+
+    /**
+     * Check if the course is new.
+     * A course will be considered new if it was created in the last 24 hours.
+     * 
+     * @return bool True if the course is new, false otherwise
+     */
+    public function isNew() : bool {
+        $now = new DateTimeImmutable();
+        $interval = $now->diff($this->createdAt);
+
+        return $interval->days <= 1;
     }
 
 }
