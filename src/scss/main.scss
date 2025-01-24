@@ -1,3 +1,54 @@
 @use 'config/reset.scss';
 @use 'config/colors.scss';
 
+body {
+    background-color: colors.$backgroundColor;
+    color: colors.$mainColor;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: colors.$titleColor;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: colors.$white;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__content {
+        min-width: 1000px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: end;
+
+        &__logo {
+            width: 100px;
+        }
+
+        &__search-input {
+            color: colors.$inputColor;
+            background-color: colors.$inputBgColor;
+            border: 1px solid colors.$inputBorderColor;
+            padding: 16px;
+            width: 280px;
+            border-radius: 32px;
+        }
+
+    }
+
+}

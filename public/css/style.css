@@ -2,6 +2,53 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #efefef;
+  color: #919191;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #545454;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #ffffff;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.header .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__content {
+  min-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+}
+.header__content__logo {
+  width: 100px;
+}
+.header__content__search-input {
+  color: #acacac;
+  background-color: #efefef;
+  border: 1px solid #d3d3d3;
+  padding: 16px;
+  width: 280px;
+  border-radius: 32px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -7,21 +7,29 @@
     <title>Desafio Revvo</title>
 </head>
 <body>
-    <header>
-        <div>
-            <img src="img/leo-logo-black.svg" alt="Leo logo">
-        </div>
-        <div>
-            <form action="">
-                <input type="text" name="search" id="search">
-            </form>
-        </div>
-        <div>
-            <img src="" alt="">
-            <p>
-                <span>Seja bem-vindo</span>
-                <span>John Doe</span>
-            </p>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__content__logo">
+                    <img src="img/leo-logo-black.svg" alt="Leo logo">
+                </div>
+                <div class="header__content__search">
+                    <form action="" class="header__content__search-form">
+                        <input type="text" 
+                            name="search" 
+                            id="search" 
+                            class="header__content__search-input" 
+                            placeholder="Pesquisar cursos...">
+                    </form>
+                </div>
+            </div>
+            <div class="header__user">
+                <img src="" alt="">
+                <p>
+                    <span>Seja bem-vindo</span>
+                    <span>John Doe</span>
+                </p>
+            </div>
         </div>
     </header>
     <main>
