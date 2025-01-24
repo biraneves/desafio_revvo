@@ -17,3 +17,5 @@ $pdo = ConnectionCreator::createConnection();
 $courseRepository = new PdoCourseRepository($pdo);
 
 // TODO: routes and controller logic
+header('Location: /index.html');
+exit();
