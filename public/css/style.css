@@ -19,6 +19,11 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
 }
 
+.card_link {
+  text-decoration: none;
+  color: #919191;
+}
+
 .header {
   background-color: #ffffff;
   padding-top: 20px;
@@ -180,9 +185,32 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.6rem;
 }
 
-.card_link {
-  text-decoration: none;
-  color: #919191;
+.footer {
+  background-color: #ffffff;
+}
+.footer h3 {
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.footer__content .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-grow: 1;
+  padding: 40px 0;
+  background-color: #ffffff;
+}
+.footer__content__info__logo {
+  margin-bottom: 16px;
+}
+.footer__content__info__description {
+  width: 300px;
+  font-size: 0.9rem;
+}
+.footer__content__contact p {
+  font-weight: bold;
+  line-height: 1.4rem;
 }
 
 /*# sourceMappingURL=style.css.map */
