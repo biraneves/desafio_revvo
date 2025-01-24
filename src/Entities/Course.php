@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Biraneves\Revvo\Entities;
 
+use DateTimeInterface;
 use InvalidArgumentException;
 
 /**
@@ -23,6 +24,7 @@ class Course {
      * @param string $description Description of the course
      * @param string $linkSlideshow Link to the course slideshow
      * @param string $image URL to the course image
+     * @param DateTimeInterface $createdAt Date the course was created
      * @param int|null $id Optional (during instantiation) ID of the course
      */
     public function __construct(
@@ -30,12 +32,14 @@ class Course {
         public readonly string $description,
         public readonly string $linkSlideshow,
         public readonly string $image,
+        public readonly DateTimeInterface $createdAt,
         private ?int $id = null,
     ) {
         $this->setTitle($title);
         $this->setDescription($description);
         $this->setLinkSlideshow($linkSlideshow);
         $this->setImage($image);
+        $this->setCreatedAt($createdAt);
         $this->setId($id);
     }
 
@@ -146,5 +150,12 @@ class Course {
         $this->image = $image;
     }
 
+    private function setCreatedAt(DateTimeInterface $createdAt) : void {
+        if (empty($createdAt)) {
+            throw new InvalidArgumentException('Course creation date cannot be empty');
+        }
+        
+        $this->createdAt = $createdAt;
+    }
 
 }
