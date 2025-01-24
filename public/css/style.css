@@ -105,7 +105,41 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .banner {
-  display: none;
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+}
+.banner__slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.banner__slides__slide {
+  min-width: 100%;
+}
+.banner__slides__slide img {
+  width: 100%;
+  display: block;
+}
+.banner__buttons {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+.banner__buttons button {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 4rem;
+  padding: 0 48px;
+  cursor: pointer;
+}
+.banner__buttons button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .courses {
