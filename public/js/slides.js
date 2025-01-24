@@ -23,3 +23,25 @@ const moveToSlide = (slidesTrack, currentSlide, targetSlide) => {
     targetSlide.classList.add('current-slide');
 };
 
+// Events listeners
+nextButton.addEventListener('click', () => {
+    const currentSlide = slidesTrack.querySelector('.current-slide');
+    const currentIndex = slides.indexOf(currentSlide);
+    const nextSlide = slides[currentIndex + 1];
+
+    moveToSlide(slidesTrack, currentSlide, nextSlide);
+    updateButtons(slides, previousButton, nextButton, currentIndex + 1);
+});
+
+previousButton.addEventListener('click', () => {
+    const currentSlide = slidesTrack.querySelector('.current-slide');
+    const currentIndex = slides.indexOf(currentSlide);
+    const previousSlide = slides[currentIndex - 1];
+
+    moveToSlide(slidesTrack, currentSlide, previousSlide);
+    updateButtons(slides, previousButton, nextButton, currentIndex - 1);
+});
+
+// Initial state
+slides[0].classList.add('current-slide');
+updateButtons(slides, previousButton, nextButton, 0);
