@@ -64,7 +64,7 @@ class Course {
      * @param int $id ID of the course to set
      * @throws InvalidArgumentException if the ID is not a valid integer
      */
-    public function setId(int $id) : void {
+    public function setId(?int $id) : void {
         if (empty($id) && !filter_var($id, FILTER_VALIDATE_INT)) {
             $this->id = null;
         }

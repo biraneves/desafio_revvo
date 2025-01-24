@@ -11,7 +11,8 @@ $sql = '
         title TEXT,
         description TEXT,
         image TEXT,
-        link_slideshow TEXT
+        link_slideshow TEXT,
+        created_at TEXT
     );
 ';
 $pdo->exec($sql);
