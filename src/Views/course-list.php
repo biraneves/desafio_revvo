@@ -7,15 +7,20 @@
                     <?php foreach($courseList as $course): ?>
                     <article class="courses__grid__course">
                         <div class="courses__grid__course__img-container">
-                            <img src="img/notebook-studying_300.jpg" alt="Course image" class="courses__grid__course__img-container__image">
+                            <img src="<?= $course->image; ?>" alt="Course image" class="courses__grid__course__img-container__image">
+                            <?php if ($course->isNew()): ?>
+                            <div class="ribbon">Novo</div>
+                            <?php endif; ?>
                         </div>
                         <div class="courses__grid__course__content-container">
-                            <h3 class="courses__grid__course__content-container__title">Pallentesque Malesuada</h3>
+                            <h3 class="courses__grid__course__content-container__title"><?= $course->title; ?></h3>
                             <p class="courses__grid__course__content-container__description">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi sequi, vel dignissimos, 
-                                enim dolorem placeat sit molestiae.
+                                <?= $course->description; ?>
                             </p>
-                            <button class="courses__grid__course__content-container__button">Ver curso</button>
+                            <a 
+                                class="courses__grid__course__content-container__button" 
+                                href="<?= $course->linkSlideshow; ?>"
+                                target="_blank">Ver curso</a>
                         </div>
                     </article>
                     <?php endforeach; ?>
