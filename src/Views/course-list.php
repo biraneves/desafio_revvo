@@ -19,7 +19,7 @@
                         </div>
                     </article>
                     <?php endforeach; ?>
-                    <a href="#" class="card_link">
+                    <a href="/new-course" class="card_link">
                         <div class="courses__grid__course-add">
                             <img src="img/add-course.svg" alt="Add course" class="courses__grid__course-add__icon">
                             <p class="courses__grid__course-add__caption">
