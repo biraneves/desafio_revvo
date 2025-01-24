@@ -12,7 +12,7 @@ class CourseListController implements Controller {
 
     public function processRequest(): void {
         $courseList = $this->courseRepository->findAll();
-        require_once __DIR__ . '/../views/course-list.php';
+        require_once __DIR__ . '/../Views/course-list.php';
     }
 
 }
