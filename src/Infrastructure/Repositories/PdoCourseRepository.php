@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Biraneves\Revvo\Infrastructure\Repositories;
 
 use Biraneves\Revvo\Entities\Course;
+use DateTimeImmutable;
 use PDO;
 
 /**
@@ -46,8 +47,8 @@ class PdoCourseRepository implements CourseRepository {
      */
     private function insert(Course $course) : bool {
         $sql = '
-            INSERT INTO courses (title, description, image, link_slideshow)
-            VALUES (:title, :description, :image, :linkSlideshow);
+            INSERT INTO courses (title, description, image, link_slideshow, created_at)
+            VALUES (:title, :description, :image, :linkSlideshow, :created_at);
         ';
 
         $statement = $this->pdo->prepare($sql);
@@ -55,6 +56,7 @@ class PdoCourseRepository implements CourseRepository {
         $statement->bindValue(':description', $course->description);
         $statement->bindValue(':image', $course->image);
         $statement->bindValue(':linkSlideshow', $course->linkSlideshow);
+        $statement->bindValue(':created_at', date('Y-m-d'));
 
         $success = $statement->execute();
 
@@ -145,6 +147,7 @@ class PdoCourseRepository implements CourseRepository {
             $courseData['description'],
             $courseData['link_slideshow'],
             $courseData['image'],
+            new DateTimeImmutable($courseData['created_at']),
             (int) $courseData['id'],
         );
     }

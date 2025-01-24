@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Biraneves\Revvo\Controllers\Error404Controller;
 use Biraneves\Revvo\Infrastructure\{
     Persistence\ConnectionCreator,
     Repositories\PdoCourseRepository,
@@ -16,6 +17,17 @@ $pdo = ConnectionCreator::createConnection();
 // Instantiate the course repository with the PDO connection
 $courseRepository = new PdoCourseRepository($pdo);
 
-// TODO: routes and controller logic
-header('Location: /index.html');
-exit();
+// Routes and controller logic
+$routes = require_once __DIR__ . '/../src/Config/routes.php';
+
+$httpMethod = $_SERVER['REQUEST_METHOD'];
+$pathInfo = $_SERVER['PATH_INFO'] ?? '/';
+
+$routeKey = "$httpMethod|$pathInfo";
+if (array_key_exists($routeKey, $routes)) {
+    $controller = new $routes[$routeKey]($courseRepository);
+} else {
+    $controller = new Error404Controller();
+}
+
+$controller->processRequest();

@@ -218,6 +218,24 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   position: relative;
 }
+.courses__grid__course__img-container__image {
+  width: 100%;
+  object-fit: cover;
+}
+.courses__grid__course__img-container .ribbon {
+  position: absolute;
+  top: 10px;
+  right: -30px;
+  width: 100px;
+  background-color: #e3e601;
+  text-align: center;
+  transform: rotate(45deg);
+  z-index: 1;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 5px 0;
+}
 .courses__grid__course__content-container {
   width: 100%;
   padding: 16px;
@@ -232,6 +250,7 @@ h1, h2, h3, h4, h5, h6 {
 .courses__grid__course__content-container__button {
   color: #ffffff;
   background-color: #01a02a;
+  display: block;
   width: 100%;
   padding: 10px;
   border: solid 1px #01a02a;
@@ -239,6 +258,8 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s;
+  text-decoration: none;
+  text-align: center;
 }
 .courses__grid__course__content-container__button:hover {
   transition: all 0.3s;
@@ -248,6 +269,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 288px;
   height: 100%;
   border: 3px dashed #9a9a9a;
+  padding: 60px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -265,6 +287,43 @@ h1, h2, h3, h4, h5, h6 {
 }
 .courses__grid__course-add__caption-highlight {
   font-size: 1.6rem;
+}
+.courses__form {
+  width: 60%;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.courses__form__field {
+  width: 100%;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.courses__form__field__input {
+  width: 520px;
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+  background-color: #ffffff;
+  border-radius: 32px;
+}
+.courses__form__button {
+  color: #ffffff;
+  background-color: #01a02a;
+  width: 160px;
+  padding: 10px;
+  border: solid 1px #01a02a;
+  border-radius: 32px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.courses__form__button:hover {
+  transition: all 0.3s;
+  background-color: #006c21;
 }
 
 .footer {

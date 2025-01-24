@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Biraneves\Revvo\Entities;
 
+use DateTimeImmutable;
+use DateTimeInterface;
 use InvalidArgumentException;
 
 /**
@@ -16,6 +18,12 @@ use InvalidArgumentException;
  */
 class Course {
 
+    public readonly string $title;
+    public readonly string $description;
+    public readonly string $linkSlideshow;
+    public readonly string $image;
+    public readonly DateTimeInterface $createdAt;
+    
     /**
      * Course constructor
      * 
@@ -23,19 +31,22 @@ class Course {
      * @param string $description Description of the course
      * @param string $linkSlideshow Link to the course slideshow
      * @param string $image URL to the course image
+     * @param DateTimeInterface $createdAt Date the course was created
      * @param int|null $id Optional (during instantiation) ID of the course
      */
     public function __construct(
-        public readonly string $title,
-        public readonly string $description,
-        public readonly string $linkSlideshow,
-        public readonly string $image,
+        string $title,
+        string $description,
+        string $linkSlideshow,
+        string $image,
+        DateTimeInterface $createdAt,
         private ?int $id = null,
     ) {
         $this->setTitle($title);
         $this->setDescription($description);
         $this->setLinkSlideshow($linkSlideshow);
         $this->setImage($image);
+        $this->setCreatedAt($createdAt);
         $this->setId($id);
     }
 
@@ -54,13 +65,9 @@ class Course {
      * @param int $id ID of the course to set
      * @throws InvalidArgumentException if the ID is not a valid integer
      */
-    public function setId(int $id) : void {
-        if (empty($id)) {
-            $this->id = $id;
-        }
-
-        if (!filter_var($id, FILTER_VALIDATE_INT)) {
-            throw new InvalidArgumentException('Course ID must be an integer');
+    public function setId(?int $id) : void {
+        if (empty($id) && !filter_var($id, FILTER_VALIDATE_INT)) {
+            $this->id = null;
         }
 
         $this->id = $id;
@@ -146,5 +153,31 @@ class Course {
         $this->image = $image;
     }
 
+    /**
+     * Set the creation date of the course
+     * 
+     * @param DateTimeInterface $createdAt Date the course was created.
+     * @throws InvalidArgumentException if the creation date is empty
+     */
+    private function setCreatedAt(DateTimeInterface $createdAt) : void {
+        if (empty($createdAt)) {
+            throw new InvalidArgumentException('Course creation date cannot be empty');
+        }
+        
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * Check if the course is new.
+     * A course will be considered new if it was created in the last 24 hours.
+     * 
+     * @return bool True if the course is new, false otherwise
+     */
+    public function isNew() : bool {
+        $now = new DateTimeImmutable();
+        $interval = $now->diff($this->createdAt);
+
+        return $interval->days <= 1;
+    }
 
 }

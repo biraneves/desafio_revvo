@@ -242,6 +242,27 @@ h1, h2, h3, h4, h5, h6 {
                 height: 150px;
                 overflow: hidden;
                 position: relative;
+
+                &__image {
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                .ribbon {
+                    position: absolute;
+                    top: 10px;
+                    right: -30px;
+                    width: 100px;
+                    background-color: colors.$cardRibbonBgColor;
+                    text-align: center;
+                    transform: rotate(45deg);
+                    z-index: 1;
+                    font-size: 0.8rem;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    padding: 5px 0;
+                }
+
             }
 
             &__content-container {
@@ -260,6 +281,7 @@ h1, h2, h3, h4, h5, h6 {
                 &__button {
                     color: colors.$buttonFgColor;
                     background-color: colors.$buttonBgColor;
+                    display: block;
                     width: 100%;
                     padding: 10px;
                     border: solid 1px colors.$buttonBgColor;
@@ -267,6 +289,8 @@ h1, h2, h3, h4, h5, h6 {
                     text-transform: uppercase;
                     cursor: pointer;
                     transition: all 0.3s;
+                    text-decoration: none;
+                    text-align: center;
 
                     &:hover {
                         transition: all 0.3s;
@@ -280,6 +304,7 @@ h1, h2, h3, h4, h5, h6 {
             width: 288px;
             height: 100%;
             border: 3px dashed colors.$cardBorderColor;
+            padding: 60px 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -299,6 +324,48 @@ h1, h2, h3, h4, h5, h6 {
                 &-highlight {
                     font-size: 1.6rem;
                 }
+            }
+        }
+    }
+
+    &__form {
+        width: 60%;
+        margin: 40px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__field {
+            width: 100%;
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: baseline;
+
+            &__input {
+                width: 520px;
+                padding: 10px;
+                border: 1px solid colors.$inputBorderColor;
+                background-color: colors.$white;
+                border-radius: 32px;
+            }
+        }
+
+        &__button {
+            color: colors.$buttonFgColor;
+            background-color: colors.$buttonBgColor;
+            width: 160px;
+            padding: 10px;
+            border: solid 1px colors.$buttonBgColor;
+            border-radius: 32px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+
+            &:hover {
+                transition: all 0.3s;
+                background-color: colors.$buttonBgHoverColor;
             }
         }
     }
