@@ -17,6 +17,12 @@ use InvalidArgumentException;
  */
 class Course {
 
+    public readonly string $title;
+    public readonly string $description;
+    public readonly string $linkSlideshow;
+    public readonly string $image;
+    public readonly DateTimeInterface $createdAt;
+    
     /**
      * Course constructor
      * 
@@ -28,11 +34,11 @@ class Course {
      * @param int|null $id Optional (during instantiation) ID of the course
      */
     public function __construct(
-        public readonly string $title,
-        public readonly string $description,
-        public readonly string $linkSlideshow,
-        public readonly string $image,
-        public readonly DateTimeInterface $createdAt,
+        string $title,
+        string $description,
+        string $linkSlideshow,
+        string $image,
+        DateTimeInterface $createdAt,
         private ?int $id = null,
     ) {
         $this->setTitle($title);
