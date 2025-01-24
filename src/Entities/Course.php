@@ -65,12 +65,8 @@ class Course {
      * @throws InvalidArgumentException if the ID is not a valid integer
      */
     public function setId(int $id) : void {
-        if (empty($id)) {
-            $this->id = $id;
-        }
-
-        if (!filter_var($id, FILTER_VALIDATE_INT)) {
-            throw new InvalidArgumentException('Course ID must be an integer');
+        if (empty($id) && !filter_var($id, FILTER_VALIDATE_INT)) {
+            $this->id = null;
         }
 
         $this->id = $id;
