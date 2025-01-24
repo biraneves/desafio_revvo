@@ -130,6 +130,7 @@ h1, h2, h3, h4, h5, h6 {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 16px;
+        padding-top: 20px;
 
         &__course {
             width: 288px;
@@ -175,5 +176,36 @@ h1, h2, h3, h4, h5, h6 {
                 }
             }
         }
+
+        &__course-add {
+            width: 288px;
+            height: 100%;
+            border: 3px dashed colors.$cardBorderColor;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            &__icon {
+                margin-bottom: 12px;
+            }
+
+            &__caption {
+                font-size: 1.2rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-align: center;
+
+                &-highlight {
+                    font-size: 1.6rem;
+                }
+            }
+        }
     }
+}
+
+.card_link {
+    text-decoration: none;
+    color: colors.$mainColor;
 }
