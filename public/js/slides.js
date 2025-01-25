@@ -82,5 +82,31 @@ previousButton.addEventListener('click', () => {
     updateButtons(slides, previousButton, nextButton, currentIndex - 1);
 });
 
+let autoSlideInterval = setInterval(() => {
+    const currentSlide = slidesTrack.querySelector('.current-slide');
+    const currentIndex = slides.indexOf(currentSlide);
+    const nextIndex = (currentIndex + 1) % slides.length;
+    const nextSlide = slides[nextIndex];
+
+    moveToSlide(slidesTrack, currentSlide, nextSlide);
+    updateButtons(nextIndex);
+}, 3000);
+
+[previousButton, nextButton].forEach((button) => {
+    button.addEventListener('click', () => {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(() => {
+            const currentSlide = slidesTrack.querySelector('.current-slide');
+            const currentIndex = slides.indexOf(currentSlide);
+            const nextIndex = (currentIndex + 1) % slides.length;
+            const nextSlide = slides[nextIndex];
+
+            moveToSlide(slidesTrack, currentSlide, nextSlide);
+            updateButtons(nextIndex);
+        }, 3000);
+    });
+});
+
+// Initial state
 slides[0].classList.add('current-slide');
 updateButtons(slides, previousButton, nextButton, 0);
