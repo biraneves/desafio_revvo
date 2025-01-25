@@ -89,7 +89,7 @@ let autoSlideInterval = setInterval(() => {
     const nextSlide = slides[nextIndex];
 
     moveToSlide(slidesTrack, currentSlide, nextSlide);
-    updateButtons(nextIndex);
+    updateButtons(slides, previousButton, nextButton, nextIndex);
 }, 3000);
 
 [previousButton, nextButton].forEach((button) => {
@@ -102,7 +102,7 @@ let autoSlideInterval = setInterval(() => {
             const nextSlide = slides[nextIndex];
 
             moveToSlide(slidesTrack, currentSlide, nextSlide);
-            updateButtons(nextIndex);
+            updateButtons(slides, previousButton, nextButton, nextIndex);
         }, 3000);
     });
 });
