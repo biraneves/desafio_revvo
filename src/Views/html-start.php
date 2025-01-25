@@ -7,6 +7,7 @@
     <title>Desafio Revvo</title>
 </head>
 <body>
+    <div class="modal"></div>
     <header class="header">
         <div class="container">
             <div class="header__content">
