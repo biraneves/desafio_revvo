@@ -7,7 +7,7 @@
     <title>Desafio Revvo</title>
 </head>
 <body>
-    <?php require_once __DIR__ . '/modal.php'; ?>
+    <div class="modal"></div>
     <header class="header">
         <div class="container">
             <div class="header__content">
