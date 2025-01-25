@@ -1,8 +1,13 @@
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -17,6 +22,28 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+}
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1000px;
+  }
+}
+@media (max-width: 992px) {
+  .container {
+    max-width: 750px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
+@media (max-width: 576px) {
+  .container {
+    max-width: 100%;
+    padding: 0 5px;
+  }
 }
 
 .card_link {
@@ -36,6 +63,11 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 992px) {
+  .modal {
+    height: 100vh;
+  }
+}
 .modal__content {
   background-color: #ffffff;
   width: 640px;
@@ -43,6 +75,11 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
   overflow: visible;
   position: relative;
+}
+@media (max-width: 992px) {
+  .modal__content {
+    width: 80%;
+  }
 }
 .modal__content__close-button {
   position: absolute;
@@ -66,6 +103,11 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 160px;
 }
+@media (max-width: 576px) {
+  .modal__content__header {
+    height: 120px;
+  }
+}
 .modal__content__header img {
   width: 100%;
   height: 100%;
@@ -80,6 +122,11 @@ h1, h2, h3, h4, h5, h6 {
   gap: 20px;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 992px) {
+  .modal__content__body {
+    padding: 20px;
+  }
 }
 .modal__content__body__title {
   text-transform: uppercase;
@@ -122,8 +169,14 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: center;
 }
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .header__content {
-  min-width: 920px;
+  max-width: 920px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -133,8 +186,25 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 20px;
   border-right: 1px solid #d3d3d3;
 }
+@media (max-width: 992px) {
+  .header__content {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: none;
+    flex-grow: 0;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+}
 .header__content__logo {
   width: 100px;
+}
+@media (max-width: 768px) {
+  .header__content__logo {
+    margin-bottom: 20px;
+  }
 }
 .header__content__search {
   position: relative;
@@ -143,6 +213,12 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   width: 280px;
   padding-right: 20px;
+}
+@media (max-width: 576px) {
+  .header__content__search-input-wrapper {
+    width: 100%;
+    padding-right: 0;
+  }
 }
 .header__content__search-input {
   color: #acacac;
@@ -160,6 +236,11 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-50%);
   pointer-events: none;
 }
+@media (max-width: 576px) {
+  .header__content__search-icon {
+    right: 10px;
+  }
+}
 .header__user {
   display: flex;
   flex-direction: row;
@@ -167,12 +248,26 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   padding-left: 20px;
 }
+@media (max-width: 992px) {
+  .header__user {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 20px;
+    justify-content: flex-start;
+  }
+}
 .header__user-avatar {
   width: 64px;
   height: 64px;
   border-radius: 50%;
   border: solid 2px #545454;
   margin-right: 20px;
+}
+@media (max-width: 576px) {
+  .header__user-avatar {
+    width: 48px;
+    height: 48px;
+  }
 }
 .header__user-access {
   display: flex;
@@ -189,12 +284,22 @@ h1, h2, h3, h4, h5, h6 {
 .header__user-arrow {
   padding-left: 20px;
 }
+@media (max-width: 576px) {
+  .header__user-arrow {
+    padding-left: 10px;
+  }
+}
 
 .banner {
   position: relative;
   width: 100%;
   height: 400px;
   overflow: hidden;
+}
+@media (max-width: 992px) {
+  .banner {
+    display: none;
+  }
 }
 .banner__slides {
   display: flex;
@@ -298,6 +403,21 @@ h1, h2, h3, h4, h5, h6 {
   gap: 16px;
   padding-top: 20px;
 }
+@media (max-width: 1200px) {
+  .courses__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 992px) {
+  .courses__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .courses__grid {
+    grid-template-columns: 1fr;
+  }
+}
 .courses__grid__course {
   width: 288px;
   border-radius: 4px;
@@ -387,6 +507,16 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   align-items: center;
 }
+@media (max-width: 992px) {
+  .courses__form {
+    width: 80%;
+  }
+}
+@media (max-width: 768px) {
+  .courses__form {
+    width: 100%;
+  }
+}
 .courses__form__field {
   width: 100%;
   margin-bottom: 16px;
@@ -395,12 +525,23 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: baseline;
 }
+@media (max-width: 576px) {
+  .courses__form__field {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .courses__form__field__input {
   width: 520px;
   padding: 10px;
   border: 1px solid #d3d3d3;
   background-color: #ffffff;
   border-radius: 32px;
+}
+@media (max-width: 576px) {
+  .courses__form__field__input {
+    width: 100%;
+  }
 }
 .courses__form__button {
   color: #ffffff;
@@ -435,6 +576,13 @@ h1, h2, h3, h4, h5, h6 {
   padding: 40px 0;
   background-color: #ffffff;
 }
+@media (max-width: 992px) {
+  .footer__content .container {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .footer__content__info__logo {
   margin-bottom: 16px;
 }
@@ -442,9 +590,20 @@ h1, h2, h3, h4, h5, h6 {
   width: 300px;
   font-size: 0.9rem;
 }
+@media (max-width: 768px) {
+  .footer__content__info__description {
+    width: 100%;
+    text-align: center;
+  }
+}
 .footer__content__contact p {
   font-weight: bold;
   line-height: 1.4rem;
+}
+@media (max-width: 992px) {
+  .footer__content__contact p {
+    text-align: center;
+  }
 }
 .footer__content__social-media__icons {
   display: flex;
@@ -452,8 +611,18 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   gap: 16px;
 }
+@media (max-width: 768px) {
+  .footer__content__social-media__icons {
+    justify-content: center;
+  }
+}
 .footer__content__social-media__icons img {
   width: 48px;
+}
+@media (max-width: 576px) {
+  .footer__content__social-media__icons img {
+    width: 36px;
+  }
 }
 .footer__copyright {
   background-color: #efefef;
